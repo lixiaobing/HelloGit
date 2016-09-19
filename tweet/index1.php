@@ -1,0 +1,73 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="./css/main.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="./images/icon.jpg">
+    <title>我的 tweet 系统</title>
+    <script type="text/javascript">	
+	    function _onload()
+	    {
+
+		    var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		    alert("xmlhttp");
+			xmlhttp.open("GET","http://www.leebing.cn/tweet/json/1.json",false);
+			xmlhttp.send();
+				
+			if(xmlhttp.readyState==4)
+			{ 
+				if(xmlhttp.status==200){
+					s+=" 存在.";
+				}else if(xmlhttp.status==404)
+					s+=" 不存在."; //url不存在 
+				else{ 
+					s+="";//其他状态 
+				}
+			} 
+			alert("aaa");
+		}
+		window.onload = _onload; 
+    </script>
+
+</head>
+<body bgcolor="#EEEEEE">　　
+<table  width="90%" align="center">
+	<tbody>
+		<tr>
+			<td>
+			    <div style="margin-left:0%; padding: 5% 5% 5% 5%; border: 1px solid LightGrey;">
+				    <h2>我的 tweet 系统</h2>
+				    <p style="font-style:italic;color:cornflowerblue;">李兵正在输入 
+				    <img src="./images/progress-blue-dot.gif" style="box-shadow:none; margin:0;height:14px">
+			        </p>
+					<div class="tweet">
+
+					<p>
+					<i>2016.09.18</i>
+					公司上网机的配置，CocosCreator都运行不了，只能呵呵..
+					<br>
+					<img src="./images/win32_2.png" width=400>
+					</p>
+
+					<p>
+					<i>2016.09.17</i>
+					这个世界有很多我无法理解，但又不得不接受的事情
+					</p>
+
+					<p>
+					<i>2016.09.16</i>
+					曾经有一次当富二代的机会摆在我的面前，可是我爸没有珍惜
+					</p>
+
+					</div>
+				</div>
+			<!-- <div style="margin-top: 5px;margin-left: 10%;">AAA</div> -->
+			</td>
+
+			<!-- <td width="20%" bgcolor="#FFFF00" valign="top">BBB -->
+			<!-- </td> -->
+		</tr>
+	</tbody>
+</table>
+
+</body>
+</html>
