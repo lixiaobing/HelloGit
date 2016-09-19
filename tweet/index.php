@@ -8,22 +8,6 @@
 	    function _onload()
 	    {
 
-		 //    var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		 //    alert("xmlhttp");
-			// xmlhttp.open("GET","http://www.leebing.cn/tweet/json/1.json",false);
-			// xmlhttp.send();
-				
-			// if(xmlhttp.readyState==4)
-			// { 
-			// 	if(xmlhttp.status==200){
-			// 		s+=" 存在.";
-			// 	}else if(xmlhttp.status==404)
-			// 		s+=" 不存在."; //url不存在 
-			// 	else{ 
-			// 		s+="";//其他状态 
-			// 	}
-			// } 
-			// alert("aaa");
 		}
 		window.onload = _onload; 
     </script>
@@ -31,8 +15,58 @@
 </head>
 <body bgcolor="#EEEEEE">
 <?php 
-echo "神奇的大象" 
+/** WordPress数据库的名称 */
+define('DB_NAME', 'tweet');
+
+/** MySQL数据库用户名 */
+define('DB_USER', 'root');
+
+/** MySQL数据库密码 */
+define('DB_PASSWORD', 'root');
+
+/** MySQL主机 */
+define('DB_HOST', '127.0.0.1:3306');
+
+/** 创建数据表时默认的文字编码 */
+define('DB_CHARSET', 'utf8mb4');
+
+
+echo DB_NAME ; 
 ?>　　
+
+<?php
+$con = mysql_connect(DB_HOST,DB_USER,DB_PASSWORD);
+if (!$con)
+{
+  die('Could not connect: ' . mysql_error());
+  echo 'Could not connect: ' ;
+}else{
+	echo "connect mysql success" ;
+}
+mysql_select_db(DB_NAME, $con);
+
+// $sql = "SELECT * from tweet" ;
+// mysql_query($sql,$con);
+
+// mysql_query("INSERT INTO tweet (content, image) VALUES ('abc', './abc.png')");
+
+
+
+$result = mysql_query("SELECT * FROM tweet");
+
+while($row = mysql_fetch_array($result))
+{
+echo $row['content'] . " " . $row['image'];
+echo "<br />";
+}
+
+
+
+
+mysql_close($con);
+// some code
+?>
+
 <table  width="90%" align="center">
 	<tbody>
 		<tr>
