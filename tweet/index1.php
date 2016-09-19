@@ -8,28 +8,31 @@
 	    function _onload()
 	    {
 
-		    var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		    alert("xmlhttp");
-			xmlhttp.open("GET","http://www.leebing.cn/tweet/json/1.json",false);
-			xmlhttp.send();
+		 //    var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		 //    alert("xmlhttp");
+			// xmlhttp.open("GET","http://www.leebing.cn/tweet/json/1.json",false);
+			// xmlhttp.send();
 				
-			if(xmlhttp.readyState==4)
-			{ 
-				if(xmlhttp.status==200){
-					s+=" 存在.";
-				}else if(xmlhttp.status==404)
-					s+=" 不存在."; //url不存在 
-				else{ 
-					s+="";//其他状态 
-				}
-			} 
-			alert("aaa");
+			// if(xmlhttp.readyState==4)
+			// { 
+			// 	if(xmlhttp.status==200){
+			// 		s+=" 存在.";
+			// 	}else if(xmlhttp.status==404)
+			// 		s+=" 不存在."; //url不存在 
+			// 	else{ 
+			// 		s+="";//其他状态 
+			// 	}
+			// } 
+			// alert("aaa");
 		}
 		window.onload = _onload; 
     </script>
 
 </head>
-<body bgcolor="#EEEEEE">　　
+<body bgcolor="#EEEEEE">
+<?php 
+echo "神奇的大象" 
+?>　　
 <table  width="90%" align="center">
 	<tbody>
 		<tr>
