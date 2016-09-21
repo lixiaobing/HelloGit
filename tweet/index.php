@@ -15,6 +15,9 @@
 </head>
 <body bgcolor="#EEEEEE">
 <?php 
+ define('ABSPATH', dirname(__FILE__) . '/');
+echo ABSPATH;
+echo "<br/>";
 /** WordPress数据库的名称 */
 define('DB_NAME', 'tweet');
 
@@ -29,43 +32,19 @@ define('DB_HOST', '127.0.0.1:3306');
 
 /** 创建数据表时默认的文字编码 */
 define('DB_CHARSET', 'utf8mb4');
+function connect()
+{
 
+echo "今天是 " . date("Y/m/d") . "<br>";
+echo "今天是 " . date("Y.m.d") . "<br>";
+echo "今天是 " . date("Y-m-d") . "<br>";
+echo "今天是 " . date("l");
 
-echo DB_NAME ; 
+}
+
+connect()
 ?>　　
 
-<?php
-$con = mysql_connect(DB_HOST,DB_USER,DB_PASSWORD);
-if (!$con)
-{
-  die('Could not connect: ' . mysql_error());
-  echo 'Could not connect: ' ;
-}else{
-	echo "connect mysql success" ;
-}
-mysql_select_db(DB_NAME, $con);
-
-// $sql = "SELECT * from tweet" ;
-// mysql_query($sql,$con);
-
-// mysql_query("INSERT INTO tweet (content, image) VALUES ('abc', './abc.png')");
-
-
-
-$result = mysql_query("SELECT * FROM tweet");
-
-while($row = mysql_fetch_array($result))
-{
-echo $row['content'] . " " . $row['image'];
-echo "<br />";
-}
-
-
-
-
-mysql_close($con);
-// some code
-?>
 
 <table  width="90%" align="center">
 	<tbody>
@@ -94,6 +73,37 @@ mysql_close($con);
 					<i>2016.09.16</i>
 					曾经有一次当富二代的机会摆在我的面前，可是我爸没有珍惜
 					</p>
+
+
+<?php
+
+	$con = mysql_connect(DB_HOST,DB_USER,DB_PASSWORD);
+	if (!$con)
+	{
+	  die('Could not connect: ' . mysql_error());
+	  echo 'Could not connect: ' ;
+	}else{
+		// echo "connect mysql success" ;
+	}
+	mysql_select_db(DB_NAME, $con);
+	mysql_query("SET NAMES 'UTF8'");
+
+ mysql_query("INSERT INTO tweet (content, image ,date_time) VALUES ('全是撒阿斯蒂芬阿斯蒂芬', '','". date("Y-m-d")."')");
+	$result = mysql_query("SELECT * FROM tweet");
+	while($row = mysql_fetch_array($result))
+	{
+	echo "<p><i>";
+	echo  $row['date_time'] ;
+	echo "</i>";
+	echo $row['content'];
+	echo "<br />";					
+	echo "</p>" ;
+	}
+
+	mysql_close($con);
+// some code
+?>
+
 
 					</div>
 				</div>
