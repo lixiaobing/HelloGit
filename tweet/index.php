@@ -42,7 +42,7 @@ function echoTweet()
 	}
 	mysql_select_db(DB_NAME, $con);
 	mysql_query("SET NAMES 'UTF8'");
-	$result = mysql_query("SELECT * FROM tweet");
+	$result = mysql_query("SELECT * FROM tweet order by id desc");
 	while($row = mysql_fetch_array($result))
 	{
 		echo "<p><i>";
@@ -67,7 +67,9 @@ function echoTweet()
 				    <img src="./images/progress-blue-dot.gif" style="box-shadow:none; margin:0;height:14px">
 			        </p>
 					<div class="tweet">
-
+					<?php
+					echoTweet()
+					?>
 					<p>
 					<i>2016.09.18</i>
 					公司上网机的配置，CocosCreator都运行不了，只能呵呵..
@@ -84,9 +86,6 @@ function echoTweet()
 					<i>2016.09.16</i>
 					曾经有一次当富二代的机会摆在我的面前，可是我爸没有珍惜
 					</p>
-					<?php
-					echoTweet()
-					?>
 					</div>
 				</div>
 			</td>
